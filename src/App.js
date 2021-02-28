@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { findByLabelText } from '@testing-library/react';
 
 function App() {
   const products = [
@@ -10,12 +11,14 @@ function App() {
     {name: 'PDF Reader', 
     price: '$30.99'}
   ]
+
+  // const productNames = products.map(product => product)
   return (
     <div className="App">
       <header className="App-header">
-        <Product product = {products[0]}></Product>
-        <Product product = {products[1]}></Product>
-        <Product product = {products[2]}></Product>
+        {
+        products.map(product => <Product product={product}></Product>)
+        }
       </header>
     </div>
   );
@@ -27,7 +30,7 @@ function Product(props) {
     borderRadius: '5px',
     backgroundColor: 'lightgray',
     height:'100%',
-    width:'400px',
+    width:'300px',
     float:'left',
     margin:'5px',
   }
